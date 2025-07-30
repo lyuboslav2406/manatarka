@@ -149,8 +149,15 @@
 
   <div class="email-form">
     <p>Оставете имейл и ще ви уведомим, когато магазинът отвори врати:</p>
-    <form name="notify" method="POST" data-netlify="true">
-      <input type="email" name="email" placeholder="Вашият имейл" required>
+    <form action="https://formspree.io/f/xldlldop" method="POST">
+      <label style="display: block; margin-bottom: 1rem;">
+        Вашият имейл:<br>
+        <input type="email" name="email" placeholder="email@example.com" required>
+      </label>
+      <label style="display: block; margin-bottom: 1rem;">
+        Съобщение (опционално):<br>
+        <textarea name="message" rows="4" style="width: 100%; max-width: 300px;"></textarea>
+      </label>
       <button type="submit">Изпрати</button>
     </form>
   </div>
