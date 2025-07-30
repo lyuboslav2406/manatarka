@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Очаквайте скоро | Диворастящи гъби и натурални чайове</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #4e342e;
+    }
+    h2 {
+      color: #6d4c41;
+    }
+    .facts, .recipes {
+      margin-top: 2rem;
+      max-width: 700px;
+    }
+    .email-form {
+      margin-top: 2rem;
+    }
+    input[type="email"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 250px;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background-color: #6d4c41;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>🍄 Очаквайте скоро!</h1>
+  <p>Подготвяме онлайн магазин, специализиран в диворастящи гъби от България, както и подбрани натурални чайове от планински билки.</p>
+
+  <div class="facts">
+    <h2>🌿 Интересни факти за дивите гъби</h2>
+    <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+      <li><strong>Манатарката</strong> (Boletus edulis) е богата на витамин D и се нарича още „царят на гъбите“.</li>
+      <li><strong>Пачи крак</strong> съдържа естествени съединения с антипаразитно действие.</li>
+      <li>Дивите гъби от Родопите се берат ръчно и сушат на сянка, запазвайки аромат и хранителна стойност.</li>
+    </ul>
+  </div>
+
+  <div class="recipes">
+    <h2>🫕 Бърза рецепта с гъби</h2>
+    <p><strong>Супа с манатарки</strong>: 50 г сушени манатарки, 1 картоф, 1 морков, 1 глава лук. Накиснете гъбите за 30 мин, след което ги сварете заедно със зеленчуците. Добавете сол, черен пипер и магданоз на вкус.</p>
+  </div>
+
+  <div class="recipes">
+    <h2>☕ Идея за чай към гъбено ястие</h2>
+    <p><strong>Мурсалски чай и маточина</strong>: 1 ч.л. от всяка билка, запарени в 300 мл гореща вода. Подходящ за храносмилане след ястие с гъби.</p>
+  </div>
+
+  <div class="email-form">
+    <p>Оставете имейл и ще ви уведомим, когато магазинът отвори врати:</p>
+    <form name="notify" method="POST" data-netlify="true">
+      <input type="email" name="email" placeholder="Вашият имейл" required>
+      <button type="submit">Изпрати</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 Диви гъби и чайове. Всички права запазени.
+  </footer>
+</body>
+</html>
