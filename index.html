@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Очаквайте скоро | Диворастящи гъби и натурални чайове</title>
-  <link href="https://cdn.btv.bg/media/images/940x529/Jun2021/2112513631.webp" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: #f5f5f5;
-      color: #333;
+      background: url('https://cdn.btv.bg/media/images/940x529/Jun2021/2112513631.webp') no-repeat center center fixed;
+      background-size: cover;
+      background-position: center;
+      color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -19,16 +21,29 @@
       padding: 2rem;
       text-align: center;
     }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
     h1 {
-      font-size: 2.5rem;
-      color: #4e342e;
+      font-size: 2.8rem;
+      color: #ffcc80;
     }
     h2 {
-      color: #6d4c41;
+      color: #ffe0b2;
     }
     .facts, .recipes {
       margin-top: 2rem;
       max-width: 700px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 12px;
     }
     .email-form {
       margin-top: 2rem;
@@ -36,15 +51,15 @@
     input[type="email"] {
       padding: 0.5rem;
       font-size: 1rem;
-      border: 1px solid #ccc;
+      border: none;
       border-radius: 4px;
       width: 250px;
     }
     button {
       padding: 0.5rem 1rem;
       font-size: 1rem;
-      background-color: #6d4c41;
-      color: white;
+      background-color: #8bc34a;
+      color: #000;
       border: none;
       border-radius: 4px;
       margin-left: 0.5rem;
@@ -53,13 +68,32 @@
     footer {
       margin-top: 3rem;
       font-size: 0.9rem;
-      color: #888;
+      color: #ddd;
+    }
+    .images {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .images img {
+      width: 200px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
   </style>
 </head>
 <body>
   <h1>🍄 Очаквайте скоро!</h1>
   <p>Подготвяме онлайн магазин, специализиран в диворастящи гъби от България, както и подбрани натурални чайове от планински билки.</p>
+
+  <div class="images">
+    <img src="https://cdn.pixabay.com/photo/2016/09/25/18/02/boletus-1695077_1280.jpg" alt="Манатарка">
+    <img src="https://cdn.pixabay.com/photo/2018/10/04/15/11/chanterelle-3723507_1280.jpg" alt="Пачи крак">
+    <img src="https://cdn.pixabay.com/photo/2017/06/25/09/24/herbs-2443940_1280.jpg" alt="Билки и чай">
+  </div>
 
   <div class="facts">
     <h2>🌿 Интересни факти за дивите гъби</h2>
