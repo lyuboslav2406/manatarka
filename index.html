@@ -1,204 +1,257 @@
 <!DOCTYPE html>
 <html lang="bg">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Очаквайте скоро | Диворастящи гъби и натурални чайове от Родопите</title>
-  <meta name="description" content="Очаквайте скоро нашия онлайн магазин за диворастящи гъби и билкови чайове от Родопите.">
-  <meta name="keywords" content="гъби, родопи, манатарки, чай, билки, натурални продукти">
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2909/2909765.png">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: url('https://cdn.btv.bg/media/images/940x529/Jun2021/2112513631.webp') no-repeat center center fixed;
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 2rem;
-      text-align: center;
-      animation: fadeIn 1s ease-in-out;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: -1;
-    }
-    h1 {
-      font-size: 2.8rem;
-      color: #ffcc80;
-    }
-    h2 {
-      color: #ffe0b2;
-    }
-    .section-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-    .facts, .recipes {
-      flex: 1 1 300px;
-      max-width: 500px;
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      border-radius: 12px;
-    }
-    .facts ul li {
-    margin-bottom: 0.75rem;
-    }   
-    .email-form {
-      margin-top: 2rem;
-    }
-    input[type="email"] {
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 4px;
-      width: 250px;
-    }
-    button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      background-color: #8bc34a;
-      color: #000;
-      border: none;
-      border-radius: 4px;
-      margin-left: 0.5rem;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #7cb342;
-      transform: scale(1.05);
-      transition: 0.2s ease;
-    }
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #ddd;
-    }
-    .images {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-    .images img {
-      width: 200px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    }
-    hr {
-      border: 0;
-      height: 1px;
-      background: rgba(255,255,255,0.2);
-      width: 80%;
-      margin: 3rem 0;
-    }
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-      .facts, .recipes {
-        max-width: 100%;
-      }
-      .images img {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
-</head>
-<body>
-  <h1>🍄 Очаквайте скоро!</h1>
-  <h2 style="margin-top: -1rem; font-weight: normal; font-size: 1.2rem; color: #ccc;">
-    Онлайн магазин за диворастящи гъби и билкови чайове от сърцето на Родопите
-  </h2>
-  <p>Скоро отваряме онлайн магазин с автентични продукти от <strong>Родопите</strong>: диворастящи гъби и ръчно брани билки за чай, сушени и обработени с грижа.</p>
-
-  <div class="section-grid">
-    <div class="facts">
-      <h2>🌿 Интересни факти за родопските гъби</h2>
-      <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
-        <li><strong>Манатарката</strong> е най-търсената гъба в Родопите – ароматна, месеста и богата на минерали.</li>
-        <li><strong>Пачи крак</strong> е с ярко жълт цвят и висока устойчивост – подходяща за изсушаване и готвене.</li>
-        <li><strong>Смръчкула</strong> (Morchella) е пролетна гъба с мрежеста шапка и деликатен вкус – ценена от гурме готвачите.</li>
-        <li><strong>Челядинка</strong> (Marasmius oreades) е дребна, но ароматна гъба, често срещана по родопските ливади – идеална за сушене.</li>
-        <li><strong>Майска гъба</strong> (Calocybe gambosa) се появява още в началото на пролетта и се отличава с месестост и плътен аромат.</li>
-        <li><strong>Брашното от манатарки</strong> е фин и ароматен продукт, идеален за подправка на ризото, супи и сосове.</li>
-        <li><strong>Гъбите</strong> са естествен източник на витамини от група B, които подпомагат нервната система.</li>
-        <li><strong>Родопските гори</strong> са изключително чисти – това прави гъбите от региона едни от най-чистите в Европа.</li>
-      </ul>
-    </div>
-
-    <div class="recipes">
-      <h2>🫕 Родопски рецепти с гъби</h2>
-      <p><strong>Супа с манатарки</strong>: 50 г сушени манатарки, 1 картоф, 1 морков, 1 глава лук. Накиснете гъбите за 30 мин, след което ги сварете със зеленчуците.</p>
-      <p><strong>Ориз с пачи крак</strong>: Задушете пачи крак с масло и лук, добавете ориз и бульон. Гответе до омекване.</p>
-      <p><strong>Смръчкули с масло и чесън</strong>: Накиснете сушени смръчкули (или използвайте пресни) за 30 мин. Задушете ги в масло с чесън и малко мащерка. Подходящи за гарнитура към месо или паста.</p>
-      <p><strong>Челядинки с яйца</strong>: Задушете челядинките в масло с лук до златисто. Добавете разбити яйца и гответе до стягане. Идеално за закуска или лек обяд.</p>
-      <p><strong>Майска гъба на фурна</strong>: Нарежете гъбите и ги подредете в тава. Поръсете със зехтин, чесън, мащерка и пекарска хартия отгоре. Печете на 180°C за 20 минути. Вкусно и ароматно!</p>
-      <p><strong>Сос с брашно от манатарки</strong>: Запържете масло и брашно от манатарки, долейте с бульон и разбъркайте – перфектен за картофи или месо.</p>
-    </div>
-  </div>
-
-  <hr>
-
-  <div class="section-grid">
-    <div class="facts">
-      <h2>🌼 Билки и чайове от Родопите</h2>
-      <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
-        <li><strong>Мурсалският чай</strong> се среща само по високите части на Родопите и е символ на здраве и дълголетие.</li>
-        <li><strong>Шипките</strong> са естествен източник на витамин C и са събирани след първата слана.</li>
-        <li><strong>Жълт кантарион</strong> е силна билка с антибактериално и антистресово действие.</li>
-      </ul>
-    </div>
-
-    <div class="recipes">
-      <h2>☕ Родопски чайове</h2>
-      <p><strong>Мурсалски чай и шипка</strong>: По 1 ч.л. от двете билки, запарени за 10 мин. Подходящ за студените месеци.</p>
-      <p><strong>Жълт кантарион и маточина</strong>: Идеален за вечерен чай – облекчава напрежение и подобрява съня.</p>
-      <p><strong>Шипка и мента</strong>: Освежаваща комбинация, подходяща за лятото – може да се пие и охладен.</p>
-    </div>
-  </div>
-
-  <div class="email-form">
-    <p>Оставете имейл и ще ви уведомим, когато магазинът отвори врати:</p>
-    <form action="https://formspree.io/f/xldlldop" method="POST">
-      <label style="display: block; margin-bottom: 1rem;">
-        Вашият имейл:<br>
-        <input type="email" name="email" placeholder="email@example.com" required style="width: 100%; max-width: 300px; background-color: rgba(255,255,255,0.15); color: #fff; border: none; border-radius: 4px; padding: 0.5rem;">
-      </label>
-      <label style="display: block; margin-bottom: 1rem;">
-        Съобщение (незадължително):<br>
-        <textarea name="message" rows="4" style="width: 100%; max-width: 300px; background-color: rgba(255,255,255,0.15); color: #fff; border: none; border-radius: 4px; padding: 0.5rem;"></textarea>
-      </label>
-      <button type="submit">Изпрати</button>
-    </form>
-  </div>
-
-  <footer>
-    &copy; 2025 Родопски гъби и чайове. Всички права запазени.
-  </footer>
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Очаквайте скоро | Диворастящи гъби и натурални чайове от Родопите</title>
+      <meta name="description" content="Очаквайте скоро нашия онлайн магазин за диворастящи гъби и билкови чайове от Родопите.">
+      <meta name="keywords" content="гъби, родопи, манатарки, чай, билки, натурални продукти">
+      <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2909/2909765.png">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+      <style>
+         * {
+         box-sizing: border-box;
+         }
+         body {
+         margin: 0;
+         font-family: 'Roboto', sans-serif;
+         background: url('https://cdn.btv.bg/media/images/940x529/Jun2021/2112513631.webp') no-repeat center center fixed;
+         background-size: cover;
+         background-position: center;
+         color: #fff;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         min-height: 100vh;
+         padding: 2rem;
+         text-align: center;
+         animation: fadeIn 1s ease-in-out;
+         }
+         body::before {
+         content: "";
+         position: fixed;
+         top: 0;
+         left: 0;
+         height: 100%;
+         width: 100%;
+         background: rgba(0, 0, 0, 0.3);
+         z-index: -1;
+         }
+         h1 {
+         font-size: 2.8rem;
+         color: #ffcc80;
+         }
+         h2 {
+         color: #ffe0b2;
+         }
+         .section-grid {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 2rem;
+         justify-content: center;
+         margin-top: 2rem;
+         }
+         .facts, .recipes {
+         flex: 1 1 300px;
+         max-width: 500px;
+         background-color: rgba(255, 255, 255, 0.1);
+         padding: 1rem;
+         border-radius: 12px;
+         }
+         .facts ul li {
+         margin-bottom: 0.75rem;
+         }
+         .email-form {
+         margin-top: 2rem;
+         }
+         input[type="email"] {
+         padding: 0.5rem;
+         font-size: 1rem;
+         border: none;
+         border-radius: 4px;
+         width: 250px;
+         }
+         button {
+         padding: 0.5rem 1rem;
+         font-size: 1rem;
+         background-color: #8bc34a;
+         color: #000;
+         border: none;
+         border-radius: 4px;
+         margin-left: 0.5rem;
+         cursor: pointer;
+         }
+         button:hover {
+         background-color: #7cb342;
+         transform: scale(1.05);
+         transition: 0.2s ease;
+         }
+         footer {
+         margin-top: 3rem;
+         font-size: 0.9rem;
+         color: #ddd;
+         text-align: center;
+         }
+         .images {
+         display: flex;
+         gap: 1rem;
+         flex-wrap: wrap;
+         justify-content: center;
+         margin-top: 2rem;
+         }
+         .images img {
+         width: 200px;
+         height: auto;
+         border-radius: 8px;
+         box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+         }
+         hr {
+         border: 0;
+         height: 1px;
+         background: rgba(255,255,255,0.2);
+         width: 80%;
+         margin: 3rem 0;
+         }
+         .contacts {
+         background-color: rgba(0, 0, 0, 0.6);
+         padding: 2rem 1rem;
+         border-radius: 12px;
+         max-width: 600px;
+         width: 100%;
+         margin-top: 2rem;
+         }
+         .contacts h2 {
+         margin-bottom: 1rem;
+         font-size: 1.8rem;
+         }
+         .contact-item {
+         font-size: 1.2rem;
+         margin-bottom: 1rem;
+         }
+         .contact-item a {
+         color: #ffecb3;
+         text-decoration: none;
+         }
+         .contact-item a:hover {
+         text-decoration: underline;
+         }
+         @media (max-width: 768px) {
+         h1 {
+         font-size: 2rem;
+         }
+         .facts, .recipes {
+         max-width: 100%;
+         }
+         .images img {
+         width: 100%;
+         max-width: 300px;
+         }
+         .contacts h2 {
+         font-size: 1.5rem;
+         }
+         .contact-item {
+         font-size: 1.1rem;
+         }
+         }
+         @keyframes fadeIn {
+         from { opacity: 0; }
+         to { opacity: 1; }
+         }
+         .call-button {
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         background-color: #8bc34a;
+         color: #000;
+         font-size: 1.2rem;
+         padding: 0.75rem 1rem;
+         border-radius: 50px;
+         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+         text-decoration: none;
+         z-index: 1000;
+         display: none;
+         }
+         .call-button:hover {
+         background-color: #7cb342;
+         transform: scale(1.05);
+         transition: 0.2s ease;
+         }
+         @media (max-width: 768px) {
+         .call-button {
+         display: inline-block;
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <h1>🍄 Очаквайте скоро!</h1>
+      <h2 style="margin-top: -1rem; font-weight: normal; font-size: 1.2rem; color: #ccc;">
+         Онлайн магазин за диворастящи гъби и билкови чайове от сърцето на Родопите
+      </h2>
+      <p>Скоро отваряме онлайн магазин с автентични продукти от <strong>Родопите</strong>: диворастящи гъби и ръчно брани билки за чай, сушени и обработени с грижа.</p>
+      <div class="section-grid">
+         <div class="facts">
+            <h2>🌿 Интересни факти за родопските гъби</h2>
+            <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+               <li><strong>Манатарката</strong> е най-търсената гъба в Родопите – ароматна, месеста и богата на минерали.</li>
+               <li><strong>Пачи крак</strong> е с ярко жълт цвят и висока устойчивост – подходяща за изсушаване и готвене.</li>
+               <li><strong>Смръчкула</strong> (Morchella) е пролетна гъба с мрежеста шапка и деликатен вкус – ценена от гурме готвачите.</li>
+               <li><strong>Челядинка</strong> (Marasmius oreades) е дребна, но ароматна гъба, често срещана по родопските ливади – идеална за сушене.</li>
+               <li><strong>Майска гъба</strong> (Calocybe gambosa) се появява още в началото на пролетта и се отличава с месестост и плътен аромат.</li>
+               <li><strong>Брашното от манатарки</strong> е фин и ароматен продукт, идеален за подправка на ризото, супи и сосове.</li>
+               <li><strong>Гъбите</strong> са естествен източник на витамини от група B, които подпомагат нервната система.</li>
+               <li><strong>Родопските гори</strong> са изключително чисти – това прави гъбите от региона едни от най-чистите в Европа.</li>
+            </ul>
+         </div>
+         <div class="recipes">
+            <h2>🫕 Родопски рецепти с гъби</h2>
+            <p><strong>Супа с манатарки</strong>: 50 г сушени манатарки, 1 картоф, 1 морков, 1 глава лук. Накиснете гъбите за 30 мин, след което ги сварете със зеленчуците.</p>
+            <p><strong>Ориз с пачи крак</strong>: Задушете пачи крак с масло и лук, добавете ориз и бульон. Гответе до омекване.</p>
+            <p><strong>Смръчкули с масло и чесън</strong>: Накиснете сушени смръчкули (или използвайте пресни) за 30 мин. Задушете ги в масло с чесън и малко мащерка. Подходящи за гарнитура към месо или паста.</p>
+            <p><strong>Челядинки с яйца</strong>: Задушете челядинките в масло с лук до златисто. Добавете разбити яйца и гответе до стягане. Идеално за закуска или лек обяд.</p>
+            <p><strong>Майска гъба на фурна</strong>: Нарежете гъбите и ги подредете в тава. Поръсете със зехтин, чесън, мащерка и пекарска хартия отгоре. Печете на 180°C за 20 минути. Вкусно и ароматно!</p>
+            <p><strong>Сос с брашно от манатарки</strong>: Запържете масло и брашно от манатарки, долейте с бульон и разбъркайте – перфектен за картофи или месо.</p>
+         </div>
+      </div>
+      <hr>
+      <div class="section-grid">
+         <div class="facts">
+            <h2>🌼 Билки и чайове от Родопите</h2>
+            <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+               <li><strong>Мурсалският чай</strong> се среща само по високите части на Родопите и е символ на здраве и дълголетие.</li>
+               <li><strong>Шипките</strong> са естествен източник на витамин C и са събирани след първата слана.</li>
+               <li><strong>Жълт кантарион</strong> е силна билка с антибактериално и антистресово действие.</li>
+            </ul>
+         </div>
+         <div class="recipes">
+            <h2>☕ Родопски чайове</h2>
+            <p><strong>Мурсалски чай и шипка</strong>: По 1 ч.л. от двете билки, запарени за 10 мин. Подходящ за студените месеци.</p>
+            <p><strong>Жълт кантарион и маточина</strong>: Идеален за вечерен чай – облекчава напрежение и подобрява съня.</p>
+            <p><strong>Шипка и мента</strong>: Освежаваща комбинация, подходяща за лятото – може да се пие и охладен.</p>
+         </div>
+      </div>
+      <div class="email-form">
+         <p>Оставете имейл и ще ви уведомим, когато магазинът отвори врати:</p>
+         <form action="https://formspree.io/f/xldlldop" method="POST">
+            <label style="display: block; margin-bottom: 1rem;">
+            Вашият имейл:<br>
+            <input type="email" name="email" placeholder="email@example.com" required style="width: 100%; max-width: 300px; background-color: rgba(255,255,255,0.15); color: #fff; border: none; border-radius: 4px; padding: 0.5rem;">
+            </label>
+            <label style="display: block; margin-bottom: 1rem;">
+            Съобщение (незадължително):<br>
+            <textarea name="message" rows="4" style="width: 100%; max-width: 300px; background-color: rgba(255,255,255,0.15); color: #fff; border: none; border-radius: 4px; padding: 0.5rem;"></textarea>
+            </label>
+            <button type="submit">Изпрати</button>
+         </form>
+      </div>
+      <div class="contacts">
+         <h2>📞 Контакти</h2>
+         <div class="contact-item"><strong>Имейл:</strong> <a href="mailto:info@manatarka.com">info@manatarka.com</a></div>
+         <div class="contact-item"><strong>Телефон:</strong> <a href="tel:+359878599119">087 8599119</a></div>
+      </div>
+      <footer>
+         &copy; 2025 Родопски гъби и чайове. Всички права запазени.
+      </footer>
+      <a href="tel:+359878599119" class="call-button">📞 Обади се</a>
+   </body>
 </html>
