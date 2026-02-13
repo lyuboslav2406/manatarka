@@ -656,6 +656,34 @@
       border-color: rgba(255,255,255,.20) !important;
     }
 
+    /* 1) Премахваме блестящите светли градиенти */
+    body::before{
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.50)) !important;
+    }
+
+    /* 2) Правим hero-а по-плътен за четимост */
+    .hero{
+      background: rgba(20,24,18,.78) !important;
+      backdrop-filter: blur(8px);
+    }
+
+    /* 3) Заглавие – по-ясен цвят */
+    .hero h1{
+      color: #ffe0a3 !important;
+      text-shadow: none !important;
+    }
+
+    /* 4) Текст – чисто бяло */
+    .hero p{
+      color: rgba(255,255,255,.92) !important;
+    }
+
+    /* 5) Secondary бутон – по-контрастен */
+    .hero .btn:not(.btn-primary){
+      background: rgba(255,255,255,.15) !important;
+      border-color: rgba(255,255,255,.30) !important;
+    }
   </style>
 </head>
 
