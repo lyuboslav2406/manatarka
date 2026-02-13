@@ -313,7 +313,13 @@
       border:1px solid rgba(255,255,255,.12);
       overflow:hidden;
     }
-    .thumb img{ transform:none; }
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform: scale(1.01);
+    }
 
     /* Delivery card */
     .info-card{
