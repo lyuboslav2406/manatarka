@@ -841,30 +841,51 @@
       <h2>Запитване</h2>
       <p>Напиши ни какво търсиш (гъби / билки / горски плодове), количество и град за доставка.</p>
 
-      <form action="https://formspree.io/f/xldlldop" method="POST">
-        <label>
-          Име (по желание)
-          <input type="text" name="name" placeholder="Вашето име" />
-        </label>
+      <form action="https://formspree.io/f/mjgerwzoК" method="POST">
+  <input type="hidden" name="_subject" value="Ново запитване от manatarka.com">
+  <input type="hidden" name="_next" value="https://manatarka.com/#zap%D0%B8%D1%82%D0%B2%D0%B0%D0%BD%D0%B5">
 
-        <label>
-          Телефон (препоръчително)
-          <input type="tel" name="phone" placeholder="08xx xxx xxx" />
-        </label>
+  <label>
+    Име (по желание)
+    <input type="text" name="name" placeholder="Вашето име" />
+  </label>
 
-        <label>
-          Имейл
-          <input type="email" name="email" placeholder="email@example.com" required />
-        </label>
+  <label>
+    Телефон (препоръчително)
+    <input type="tel" name="phone" placeholder="08xx xxx xxx" />
+  </label>
 
-        <label>
-          Съобщение
-          <textarea name="message" placeholder="Напр. манатарка сушена ~ 200г, мурсалски чай, доставка до София"></textarea>
-        </label>
+  <label>
+    Имейл
+    <input type="email" name="email" placeholder="email@example.com" required />
+  </label>
 
-        <input type="text" name="_gotcha" style="display:none" />
-        <button class="btn btn-primary" type="submit">Изпрати запитване</button>
-      </form>
+  <!-- Formspree очаква _replyto за reply-to -->
+  <input type="hidden" name="_replyto" value="">
+
+  <label>
+    Съобщение
+    <textarea name="message" placeholder="Напр. манатарка сушена ~ 200г, мурсалски чай, доставка до София"></textarea>
+  </label>
+
+  <input type="text" name="_gotcha" style="display:none" />
+  <button class="btn btn-primary" type="submit">Изпрати запитване</button>
+</form>
+
+<script>
+  // Задава _replyto = email полето (за да можеш да Reply директно на клиента)
+  (function () {
+    const form = document.querySelector('form[action^="https://formspree.io/f/"]');
+    if (!form) return;
+    const email = form.querySelector('input[name="email"]');
+    const replyto = form.querySelector('input[name="_replyto"]');
+    if (email && replyto) {
+      email.addEventListener('input', () => replyto.value = email.value);
+      replyto.value = email.value || '';
+    }
+  })();
+</script>
+
     </section>
 
     <section id="kontakti" class="section">
