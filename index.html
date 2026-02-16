@@ -244,12 +244,18 @@
       backdrop-filter: blur(12px);
     }
     .section h2{
-      margin:0 0 8px 0;
-      font-size: var(--h2);
+      margin:0 0 10px 0;
+      font-size:1.55rem;
       color:#ffe0b2;
       text-align:center;
-      letter-spacing:.2px;
     }
+
+    .section#zapитване > p{
+      text-align:center;
+      max-width:700px;
+      margin:0 auto 10px auto;
+    }
+
     .section > p{
       color: var(--muted);
       line-height:1.65;
@@ -454,12 +460,24 @@
 
     /* Form */
     form{
-      margin: 14px auto 0;
+      margin: 20px auto 0 auto;
       display: grid;
-      gap: 10px;
-      max-width: 580px;
-      text-align:left;
+      gap: 14px;
+      max-width: 560px;
+      padding: 20px;
+      background: rgba(0,0,0,.35);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
+
+    form .btn{
+      justify-self:center;
+      width:100%;
+      max-width:260px;
+    }
+
+
     label{
       display:grid;
       gap:6px;
