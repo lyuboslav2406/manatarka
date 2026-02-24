@@ -496,7 +496,7 @@
     }
     .contact-item a:hover{ text-decoration:underline; }
 
-    /* ✅ ВРЪЩАМЕ premium social в Контакти */
+    /* ✅ premium social в Контакти */
     .social-row{
       margin-top: 14px;
       display:flex;
@@ -632,7 +632,6 @@
       place-items:center;
       gap:4px;
 
-      /* ✅ FIX: да НЕ “излиза” текстът и да НЕ лепне върху съседен бутон */
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -716,9 +715,6 @@
       .mobile-nav{ display:flex; }
       .call-button{ display:inline-flex; gap:8px; align-items:center; }
 
-      /* ✅ На мобилно скриваме горните социални */
-      .topbar .social{ display:none !important; }
-
       .brand{ justify-content:center; }
       .brand-sub{ max-width: 92vw; }
 
@@ -792,6 +788,32 @@
       background: rgba(255,255,255,.15) !important;
       border-color: rgba(255,255,255,.30) !important;
     }
+
+    /* =========================================================
+       ✅ ФИКС: На мобилно НЕ показваме социалните в ТОП бара,
+       но в Контакти остават. На десктоп – топбар социалните
+       са видими.
+       (Сложено е НАЙ-НАКРАЯ, за да печели по cascade.)
+       ========================================================= */
+    @media (max-width: 768px){
+      .topbar .social{
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+      #kontakti .social-row{
+        display: flex !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+      }
+    }
+    @media (min-width: 769px){
+      .topbar .social{
+        display: flex !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+      }
+    }
   </style>
 </head>
 
@@ -813,7 +835,7 @@
       <a href="#kontakti">Контакти</a>
     </nav>
 
-    <!-- desktop (скрива се на мобилно) -->
+    <!-- desktop (скрива се на мобилно чрез FIX-а най-долу) -->
     <div class="social" aria-label="Социални мрежи">
       <a href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -992,7 +1014,6 @@
         <div class="contact-item"><strong>Телефон:</strong> <a href="tel:+359878599119">087 859 9119</a></div>
       </div>
 
-      <!-- ✅ ТУК са върнати premium social бутоните -->
       <div class="social-row" aria-label="Последвай ни">
         <a class="social-btn ig" href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1015,7 +1036,6 @@
     </footer>
   </div>
 
-  <!-- Mobile nav + premium socials -->
   <div class="mobile-nav" aria-label="Навигация">
     <a href="#katalog" data-target="katalog"><span>🍄‍🟫</span>Каталог</a>
     <a href="#galeria" data-target="galeria"><span>🖼️</span>Галерия</a>
@@ -1041,7 +1061,6 @@
 
   <a href="tel:+359878599119" class="call-button">📞 Обади се</a>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-content">
       <button class="lb-btn lb-close" id="lbClose" type="button">✕</button>
