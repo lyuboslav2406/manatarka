@@ -516,7 +516,7 @@
       z-index: 1100;
 
       display: none;
-      justify-content: space-between;
+      align-items:center;
       gap: 10px;
 
       padding: 10px 12px;
@@ -527,8 +527,16 @@
       box-shadow: var(--shadow);
     }
 
-    .mobile-nav a{
-      flex: 1;
+    /* 4 nav links */
+    .mobile-nav .nav-links{
+      flex: 1 1 auto;
+      display:flex;
+      gap:10px;
+      min-width: 0;
+    }
+
+    .mobile-nav .nav-links a{
+      flex: 1 1 0;
       text-decoration: none;
       color: rgba(255,255,255,.78);
       font-size: .78rem;
@@ -541,29 +549,49 @@
       border: 1px solid transparent;
       transition: background .15s ease, transform .15s ease, border-color .15s ease, color .15s ease;
       line-height: 1.05;
+
       display:grid;
       place-items:center;
       gap:4px;
     }
 
-    .mobile-nav a span{
+    .mobile-nav .nav-links a span{
       display:block;
       font-size: 1.05rem;
       line-height:1;
     }
 
-    .mobile-nav a.active{
+    .mobile-nav .nav-links a.active{
       background: rgba(139,195,74,.18);
       border-color: rgba(139,195,74,.35);
       color: #eaffd6;
     }
 
-    /* Mobile social mini buttons inside bottom nav */
-    .mobile-nav .social-mini{
+    /* Social mini group (2 icons) */
+    .mobile-nav .mobile-social{
       flex: 0 0 auto;
-      width: 52px;
+      display:flex;
+      gap:8px;
+      align-items:center;
     }
-    .mobile-nav .social-mini svg{
+    .mobile-nav .mobile-social a{
+      width:44px;
+      height:44px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      text-decoration:none;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+      box-shadow: 0 10px 22px rgba(0,0,0,.18);
+    }
+    .mobile-nav .mobile-social a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.11);
+      border-color: rgba(255,255,255,.26);
+    }
+    .mobile-nav .mobile-social svg{
       width:18px;height:18px; fill: rgba(255,255,255,.92);
     }
 
@@ -595,7 +623,7 @@
       .mobile-nav{ display:flex; }
       .call-button{ display:inline-flex; gap:8px; align-items:center; }
 
-      /* ✅ Topbar social -> скриваме, за да не се чупи */
+      /* ✅ Topbar social -> скриваме, за да не се претрупва на мобилно */
       .topbar .social{ display:none; }
 
       .brand{ justify-content:center; }
@@ -675,13 +703,14 @@
       border-color: rgba(255,255,255,.30) !important;
     }
 
-    /* Social buttons (Topbar + Contacts) */
+    /* ========== PREMIUM SOCIAL EDITION ========== */
+
+    /* Desktop mini icons in topbar */
     .social{
       display:flex;
       align-items:center;
       gap:10px;
     }
-
     .social a{
       width:38px;
       height:38px;
@@ -692,22 +721,37 @@
       border: 1px solid rgba(255,255,255,.18);
       background: rgba(255,255,255,.08);
       box-shadow: 0 10px 22px rgba(0,0,0,.20);
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
     }
-
-    .social a:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.12);
-      border-color: rgba(255,255,255,.26);
-    }
-
     .social svg{
       width:18px;
       height:18px;
-      fill: rgba(255,255,255,.90);
+      fill: rgba(255,255,255,.92);
     }
 
-    /* Bigger buttons in Contacts section */
+    /* Instagram gradient */
+    .social a.instagram{
+      background: radial-gradient(120% 120% at 20% 20%, #ffd776 0%, #f56040 35%, #d62976 60%, #962fbf 85%, #4f5bd5 100%);
+      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 14px 30px rgba(214,41,118,.22);
+    }
+    .social a.instagram:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 36px rgba(214,41,118,.28);
+    }
+
+    /* Facebook blue */
+    .social a.facebook{
+      background: linear-gradient(180deg, rgba(24,119,242,1), rgba(16,92,195,1));
+      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 14px 30px rgba(24,119,242,.20);
+    }
+    .social a.facebook:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 36px rgba(24,119,242,.26);
+    }
+
+    /* Big buttons in Contacts */
     .social-row{
       margin-top: 14px;
       display:flex;
@@ -729,19 +773,45 @@
       font-weight: 900;
       letter-spacing: .15px;
       box-shadow: 0 10px 22px rgba(0,0,0,.20);
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-
-    .social-btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.12);
-      border-color: rgba(255,255,255,.26);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
     }
 
     .social-btn svg{
       width:18px;
       height:18px;
       fill: rgba(255,255,255,.92);
+    }
+
+    .social-btn.instagram{
+      background: radial-gradient(120% 120% at 20% 20%, #ffd776 0%, #f56040 35%, #d62976 60%, #962fbf 85%, #4f5bd5 100%);
+      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 14px 30px rgba(214,41,118,.20);
+    }
+    .social-btn.instagram:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 36px rgba(214,41,118,.26);
+    }
+
+    .social-btn.facebook{
+      background: linear-gradient(180deg, rgba(24,119,242,1), rgba(16,92,195,1));
+      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 14px 30px rgba(24,119,242,.18);
+    }
+    .social-btn.facebook:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 36px rgba(24,119,242,.24);
+    }
+
+    /* Mobile mini social (bottom nav) premium */
+    .mobile-nav .mobile-social a.instagram{
+      background: radial-gradient(120% 120% at 20% 20%, #ffd776 0%, #f56040 35%, #d62976 60%, #962fbf 85%, #4f5bd5 100%);
+      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 12px 26px rgba(214,41,118,.18);
+    }
+    .mobile-nav .mobile-social a.facebook{
+      background: linear-gradient(180deg, rgba(24,119,242,1), rgba(16,92,195,1));
+      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 12px 26px rgba(24,119,242,.16);
     }
   </style>
 </head>
@@ -764,15 +834,15 @@
       <a href="#kontakti">Контакти</a>
     </nav>
 
-    <!-- ✅ Desktop social icons -->
+    <!-- ✅ Desktop social icons (hidden on mobile) -->
     <div class="social" aria-label="Социални мрежи">
-      <a href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <a class="instagram" href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
         </svg>
       </a>
 
-      <a href="https://www.facebook.com/manatarka.bulgaria" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <a class="facebook" href="https://www.facebook.com/manatarka.bulgaria" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.8-.2-3-.2-2.9 0-4.9 1.8-4.9 5V11H6.5v3H9v8h4.5z"/>
         </svg>
@@ -947,23 +1017,23 @@
       <div class="contacts">
         <div class="contact-item"><strong>Имейл:</strong> <a href="mailto:info@manatarka.com">info@manatarka.com</a></div>
         <div class="contact-item"><strong>Телефон:</strong> <a href="tel:+359878599119">087 859 9119</a></div>
-      </div>
 
-      <!-- ✅ Bigger social buttons -->
-      <div class="social-row" aria-label="Последвай ни">
-        <a class="social-btn" href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
-          </svg>
-          Instagram
-        </a>
+        <!-- ✅ Bigger premium social buttons -->
+        <div class="social-row" aria-label="Последвай ни">
+          <a class="social-btn instagram" href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
+            </svg>
+            Instagram
+          </a>
 
-        <a class="social-btn" href="https://www.facebook.com/manatarka.bulgaria" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.8-.2-3-.2-2.9 0-4.9 1.8-4.9 5V11H6.5v3H9v8h4.5z"/>
-          </svg>
-          Facebook
-        </a>
+          <a class="social-btn facebook" href="https://www.facebook.com/manatarka.bulgaria" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.8-.2-3-.2-2.9 0-4.9 1.8-4.9 5V11H6.5v3H9v8h4.5z"/>
+            </svg>
+            Facebook
+          </a>
+        </div>
       </div>
     </section>
 
@@ -972,28 +1042,28 @@
     </footer>
   </div>
 
-  <!-- ✅ Mobile nav + social mini icons -->
+  <!-- ✅ Mobile nav (4 links) + 2 mini social icons (doesn't break layout) -->
   <div class="mobile-nav" aria-label="Навигация">
-    <a href="#katalog" data-target="katalog"><span>🍄‍🟫</span>Каталог</a>
-    <a href="#galeria" data-target="galeria"><span>🖼️</span>Галерия</a>
-    <a href="#dostavka" data-target="dostavka"><span>🚚</span>Доставка</a>
-    <a href="#zapитване" data-target="zapитване"><span>✉️</span>Запитване</a>
+    <div class="nav-links">
+      <a href="#katalog" data-target="katalog"><span>🍄‍🟫</span>Каталог</a>
+      <a href="#galeria" data-target="galeria"><span>🖼️</span>Галерия</a>
+      <a href="#dostavka" data-target="dostavka"><span>🚚</span>Доставка</a>
+      <a href="#zapитване" data-target="zapитване"><span>✉️</span>Запитване</a>
+    </div>
 
-    <a class="social-mini" href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      <span>
+    <div class="mobile-social" aria-label="Социални мрежи">
+      <a class="instagram" href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
         </svg>
-      </span>
-    </a>
+      </a>
 
-    <a class="social-mini" href="https://www.facebook.com/manatarka.bulgaria" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-      <span>
+      <a class="facebook" href="https://www.facebook.com/manatarka.bulgaria" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.8-.2-3-.2-2.9 0-4.9 1.8-4.9 5V11H6.5v3H9v8h4.5z"/>
         </svg>
-      </span>
-    </a>
+      </a>
+    </div>
   </div>
 
   <a href="tel:+359878599119" class="call-button">📞 Обади се</a>
