@@ -335,8 +335,9 @@
       border-radius: var(--radius2);
       padding: 14px;
       box-shadow: 0 10px 22px rgba(0,0,0,.18);
+      text-align:center;
     }
-    .info-card p{ color: var(--muted); line-height: 1.65; }
+    .info-card p{ color: var(--muted); line-height: 1.65; margin-left:auto; margin-right:auto; }
 
     /* Gallery */
     .gallery-head{
@@ -477,7 +478,6 @@
       max-width:260px;
     }
 
-
     label{
       display:grid;
       gap:6px;
@@ -541,18 +541,30 @@
       border: 1px solid transparent;
       transition: background .15s ease, transform .15s ease, border-color .15s ease, color .15s ease;
       line-height: 1.05;
+      display:grid;
+      place-items:center;
+      gap:4px;
     }
 
     .mobile-nav a span{
       display:block;
       font-size: 1.05rem;
-      margin-bottom: 4px;
+      line-height:1;
     }
 
     .mobile-nav a.active{
       background: rgba(139,195,74,.18);
       border-color: rgba(139,195,74,.35);
       color: #eaffd6;
+    }
+
+    /* Mobile social mini buttons inside bottom nav */
+    .mobile-nav .social-mini{
+      flex: 0 0 auto;
+      width: 52px;
+    }
+    .mobile-nav .social-mini svg{
+      width:18px;height:18px; fill: rgba(255,255,255,.92);
     }
 
     .call-button{
@@ -583,6 +595,9 @@
       .mobile-nav{ display:flex; }
       .call-button{ display:inline-flex; gap:8px; align-items:center; }
 
+      /* ✅ Topbar social -> скриваме, за да не се чупи */
+      .topbar .social{ display:none; }
+
       .brand{ justify-content:center; }
       .brand-sub{ max-width: 92vw; }
 
@@ -594,31 +609,7 @@
       .lb-next{ right: 6px; }
     }
 
-        /* Доставка */
-    #dostavka .info-card{
-      text-align:center;
-    }
-    #dostavka .info-card p{
-      text-align:center;
-      margin-left:auto;
-      margin-right:auto;
-    }
-
-    /* Каталог карти */
-    #katalog .card{
-      text-align:center;
-    }
-    #katalog .card h3,
-    #katalog .card small{
-      text-align:center;
-    }
-    #katalog .card .pill{
-      display:inline-block;
-      margin-left:auto;
-      margin-right:auto;
-    }
-
-    /* 1) Общ фон: по-светъл, топъл, без да губим контраст */
+    /* --- Твоите “по-светли/по-четими” overrides --- */
     body{
       background:
         linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.42)),
@@ -627,28 +618,22 @@
       background-position: center !important;
     }
 
-    /* 2) Оверлеи: вдигаме “светлината” */
     body::before{
       background:
-        radial-gradient(1200px 600px at 18% 8%, rgba(139,195,74,.22), transparent 58%),
-        radial-gradient(900px 520px at 85% 0%, rgba(255,204,128,.18), transparent 62%),
-        linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.50)) !important;
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.50)) !important;
     }
 
-    /* 3) Стъклото става по-светло */
     .topbar{
       background: rgba(255,255,255,.10) !important;
       border-color: rgba(255,255,255,.18) !important;
     }
 
-    /* 4) Hero/Sections: по-светла “карта”, по-малко катран */
     .hero,
     .section{
       background: rgba(255,255,255,.10) !important;
       border-color: rgba(255,255,255,.20) !important;
     }
 
-    /* 5) Карти в каталога + инфо-карта */
     .card,
     .info-card,
     .contacts{
@@ -656,51 +641,107 @@
       border-color: rgba(255,255,255,.20) !important;
     }
 
-    /* 6) Текстове: леко по-топли, по-малко “сиви” */
     :root{
       --text: rgba(255,255,255,.94);
       --muted: rgba(255,255,255,.82);
     }
 
-    /* 7) Pill: по-“еко етикет”, по-малко тъмно */
     .pill{
       background: rgba(255,255,255,.10) !important;
       border-color: rgba(255,255,255,.22) !important;
     }
 
-    /* 8) Галерия */
     .gallery-item{
       background: rgba(255,255,255,.10) !important;
       border-color: rgba(255,255,255,.20) !important;
     }
 
-    /* 1) Премахваме блестящите светли градиенти */
-    body::before{
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.50)) !important;
-    }
-
-    /* 2) Правим hero-а по-плътен за четимост */
     .hero{
       background: rgba(20,24,18,.78) !important;
       backdrop-filter: blur(8px);
     }
 
-    /* 3) Заглавие – по-ясен цвят */
     .hero h1{
       color: #ffe0a3 !important;
       text-shadow: none !important;
     }
 
-    /* 4) Текст – чисто бяло */
     .hero p{
       color: rgba(255,255,255,.92) !important;
     }
 
-    /* 5) Secondary бутон – по-контрастен */
     .hero .btn:not(.btn-primary){
       background: rgba(255,255,255,.15) !important;
       border-color: rgba(255,255,255,.30) !important;
+    }
+
+    /* Social buttons (Topbar + Contacts) */
+    .social{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .social a{
+      width:38px;
+      height:38px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      text-decoration:none;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 10px 22px rgba(0,0,0,.20);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .social a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.26);
+    }
+
+    .social svg{
+      width:18px;
+      height:18px;
+      fill: rgba(255,255,255,.90);
+    }
+
+    /* Bigger buttons in Contacts section */
+    .social-row{
+      margin-top: 14px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .social-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      text-decoration:none;
+      color: rgba(255,255,255,.92);
+      font-weight: 900;
+      letter-spacing: .15px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.20);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .social-btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.26);
+    }
+
+    .social-btn svg{
+      width:18px;
+      height:18px;
+      fill: rgba(255,255,255,.92);
     }
   </style>
 </head>
@@ -714,6 +755,7 @@
         <span class="brand-sub">Родопски гъби, билки и натурални продукти</span>
       </div>
     </div>
+
     <nav>
       <a href="#katalog">Каталог</a>
       <a href="#galeria">Галерия</a>
@@ -721,27 +763,36 @@
       <a href="#zapитване">Запитване</a>
       <a href="#kontakti">Контакти</a>
     </nav>
+
+    <!-- ✅ Desktop social icons -->
+    <div class="social" aria-label="Социални мрежи">
+      <a href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.facebook.com/manatarka.bulgaria" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.8-.2-3-.2-2.9 0-4.9 1.8-4.9 5V11H6.5v3H9v8h4.5z"/>
+        </svg>
+      </a>
+    </div>
   </div>
 
   <div class="container">
     <header class="hero">
-        <h1>Диворастящи гъби и билки от Родопите</h1>
+      <h1>Диворастящи гъби и билки от Родопите</h1>
+      <p>
+        Сезонни, подбрани и събирани от природата.
+        Истински вкус без посредници – директно от планината до вас.
+      </p>
 
-        <p>
-          Сезонни, подбрани и събирани от природата.
-          Истински вкус без посредници – директно от планината до вас.
-        </p>
-
-       <div class="hero-actions">
-         <a class="btn btn-primary" href="tel:+359878599119">
-           📞 Обади се: 087 859 9119
-         </a>
-         <a class="btn" href="#zapитване">
-           ✉️ Изпрати запитване
-         </a>
-       </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+359878599119">📞 Обади се: 087 859 9119</a>
+        <a class="btn" href="#zapитване">✉️ Изпрати запитване</a>
+      </div>
     </header>
-
 
     <section id="katalog" class="section">
       <h2>Каталог</h2>
@@ -816,7 +867,9 @@
         <div class="gallery-item" data-src="assets/gallery/wp_06.webp" hidden><img src="assets/gallery/wp_06.webp" alt="Снимка 24" loading="lazy"></div>
         <div class="gallery-item" data-src="assets/gallery/wp_11.webp" hidden><img src="assets/gallery/wp_11.webp" alt="Снимка 25" loading="lazy"></div>
         <div class="gallery-item" data-src="assets/gallery/wp_04.webp" hidden><img src="assets/gallery/wp_04.webp" alt="Снимка 26" loading="lazy"></div>
-        <div class="gallery-item" data-src="assets/gallery/wp_08.webp" hidden><img src="assets/gallery/wp_07.webp" alt="Снимка 27" loading="lazy"></div>
+
+        <!-- ✅ FIX: data-src и img src да съвпадат -->
+        <div class="gallery-item" data-src="assets/gallery/wp_07.webp" hidden><img src="assets/gallery/wp_07.webp" alt="Снимка 27" loading="lazy"></div>
         <div class="gallery-item" data-src="assets/gallery/IMG_8717.webp" hidden><img src="assets/gallery/IMG_8717.webp" alt="Снимка 28" loading="lazy"></div>
       </div>
 
@@ -842,58 +895,75 @@
       <p>Напиши ни какво търсиш (гъби / билки / горски плодове), количество и град за доставка.</p>
 
       <form action="https://formspree.io/f/mjgerwzo" method="POST">
-  <input type="hidden" name="_subject" value="Ново запитване от manatarka.com">
-  <input type="hidden" name="_next" value="https://manatarka.com/#zap%D0%B8%D1%82%D0%B2%D0%B0%D0%BD%D0%B5">
+        <input type="hidden" name="_subject" value="Ново запитване от manatarka.com">
+        <input type="hidden" name="_next" value="https://manatarka.com/#zap%D0%B8%D1%82%D0%B2%D0%B0%D0%BD%D0%B5">
 
-  <label>
-    Име (по желание)
-    <input type="text" name="name" placeholder="Вашето име" />
-  </label>
+        <label>
+          Име (по желание)
+          <input type="text" name="name" placeholder="Вашето име" />
+        </label>
 
-  <label>
-    Телефон (препоръчително)
-    <input type="tel" name="phone" placeholder="08xx xxx xxx" />
-  </label>
+        <label>
+          Телефон (препоръчително)
+          <input type="tel" name="phone" placeholder="08xx xxx xxx" />
+        </label>
 
-  <label>
-    Имейл
-    <input type="email" name="email" placeholder="email@example.com" required />
-  </label>
+        <label>
+          Имейл
+          <input type="email" name="email" placeholder="email@example.com" required />
+        </label>
 
-  <!-- Formspree очаква _replyto за reply-to -->
-  <input type="hidden" name="_replyto" value="">
+        <!-- Formspree очаква _replyto за reply-to -->
+        <input type="hidden" name="_replyto" value="">
 
-  <label>
-    Съобщение
-    <textarea name="message" placeholder="Напр. манатарка сушена ~ 200г, мурсалски чай, доставка до София"></textarea>
-  </label>
+        <label>
+          Съобщение
+          <textarea name="message" placeholder="Напр. манатарка сушена ~ 200г, мурсалски чай, доставка до София"></textarea>
+        </label>
 
-  <input type="text" name="_gotcha" style="display:none" />
-  <button class="btn btn-primary" type="submit">Изпрати запитване</button>
-</form>
+        <input type="text" name="_gotcha" style="display:none" />
+        <button class="btn btn-primary" type="submit">Изпрати запитване</button>
+      </form>
 
-<script>
-  // Задава _replyto = email полето (за да можеш да Reply директно на клиента)
-  (function () {
-    const form = document.querySelector('form[action^="https://formspree.io/f/"]');
-    if (!form) return;
-    const email = form.querySelector('input[name="email"]');
-    const replyto = form.querySelector('input[name="_replyto"]');
-    if (email && replyto) {
-      email.addEventListener('input', () => replyto.value = email.value);
-      replyto.value = email.value || '';
-    }
-  })();
-</script>
-
+      <script>
+        // Задава _replyto = email полето (за да можеш да Reply директно на клиента)
+        (function () {
+          const form = document.querySelector('form[action^="https://formspree.io/f/"]');
+          if (!form) return;
+          const email = form.querySelector('input[name="email"]');
+          const replyto = form.querySelector('input[name="_replyto"]');
+          if (email && replyto) {
+            email.addEventListener('input', () => replyto.value = email.value);
+            replyto.value = email.value || '';
+          }
+        })();
+      </script>
     </section>
 
     <section id="kontakti" class="section">
       <h2>Контакти</h2>
       <p>Свържи се с нас по телефон или имейл.</p>
+
       <div class="contacts">
         <div class="contact-item"><strong>Имейл:</strong> <a href="mailto:info@manatarka.com">info@manatarka.com</a></div>
         <div class="contact-item"><strong>Телефон:</strong> <a href="tel:+359878599119">087 859 9119</a></div>
+      </div>
+
+      <!-- ✅ Bigger social buttons -->
+      <div class="social-row" aria-label="Последвай ни">
+        <a class="social-btn" href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
+          </svg>
+          Instagram
+        </a>
+
+        <a class="social-btn" href="https://www.facebook.com/manatarka.bulgaria" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.8-.2-3-.2-2.9 0-4.9 1.8-4.9 5V11H6.5v3H9v8h4.5z"/>
+          </svg>
+          Facebook
+        </a>
       </div>
     </section>
 
@@ -902,11 +972,28 @@
     </footer>
   </div>
 
+  <!-- ✅ Mobile nav + social mini icons -->
   <div class="mobile-nav" aria-label="Навигация">
     <a href="#katalog" data-target="katalog"><span>🍄‍🟫</span>Каталог</a>
     <a href="#galeria" data-target="galeria"><span>🖼️</span>Галерия</a>
     <a href="#dostavka" data-target="dostavka"><span>🚚</span>Доставка</a>
     <a href="#zapитване" data-target="zapитване"><span>✉️</span>Запитване</a>
+
+    <a class="social-mini" href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
+        </svg>
+      </span>
+    </a>
+
+    <a class="social-mini" href="https://www.facebook.com/manatarka.bulgaria" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.8-.2-3-.2-2.9 0-4.9 1.8-4.9 5V11H6.5v3H9v8h4.5z"/>
+        </svg>
+      </span>
+    </a>
   </div>
 
   <a href="tel:+359878599119" class="call-button">📞 Обади се</a>
@@ -924,7 +1011,7 @@
   <script>
     // Mobile nav active state
     (function(){
-      const links = Array.from(document.querySelectorAll('.mobile-nav a'));
+      const links = Array.from(document.querySelectorAll('.mobile-nav a[data-target]'));
       const sections = links.map(a => document.getElementById(a.getAttribute('data-target'))).filter(Boolean);
       if(!links.length || !sections.length) return;
 
