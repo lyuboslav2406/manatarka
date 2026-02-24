@@ -813,6 +813,38 @@
       border-color: rgba(255,255,255,.22);
       box-shadow: 0 12px 26px rgba(24,119,242,.16);
     }
+    /* ✅ FIX: да не се крият секции зад fixed Topbar + fixed Mobile Nav */
+    html{
+      scroll-padding-top: calc(var(--topbar-h) + 26px);
+      scroll-padding-bottom: calc(var(--mobile-nav-h) + 48px);
+    }
+    
+    /* ✅ FIX: когато стигнеш Запитване, да има “въздух” под формата */
+    #zapитване{
+      scroll-margin-top: calc(var(--topbar-h) + 26px);
+    }
+    
+    /* На мобилно bottom nav + safe-area могат да са по-високи */
+    @media (max-width: 768px){
+      html{
+        scroll-padding-bottom: calc(var(--mobile-nav-h) + 90px);
+      }
+    
+      /* Най-важното: да не се закрива формата */
+      #zapитване{
+        padding-bottom: calc(18px + var(--mobile-nav-h) + 90px);
+      }
+    
+      /* Ако footer-ът ти е близо до дъното, и него пазим */
+      footer{
+        padding-bottom: calc(var(--mobile-nav-h) + 40px);
+      }
+    
+      /* (по желание) iPhone safe-area */
+      .mobile-nav{
+        padding-bottom: calc(10px + env(safe-area-inset-bottom));
+      }
+    }
   </style>
 </head>
 
