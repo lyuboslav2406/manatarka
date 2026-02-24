@@ -40,7 +40,7 @@
     *{ box-sizing:border-box; }
     html{
       scroll-behavior:smooth;
-      /* ✅ anchors да не се крият под fixed баровете */
+      /* anchors да не се крият под fixed баровете */
       scroll-padding-top: calc(var(--topbar-h) + 26px);
       scroll-padding-bottom: calc(var(--mobile-nav-h) + 90px);
     }
@@ -58,7 +58,7 @@
       background-position: center;
     }
 
-    /* “grain” – много фин, премиум */
+    /* grain */
     body::before{
       content:"";
       position:fixed;
@@ -89,7 +89,7 @@
       padding: calc(var(--topbar-h) + 22px) 18px calc(var(--mobile-nav-h) + 28px);
     }
 
-    /* Sticky Topbar */
+    /* Topbar */
     .topbar{
       position: fixed;
       top: 12px;
@@ -171,7 +171,7 @@
       transform: translateY(-1px);
     }
 
-    /* Social (Topbar - desktop only) */
+    /* Topbar social (desktop) */
     .social{
       display:flex;
       align-items:center;
@@ -284,7 +284,6 @@
       color:#ffe0b2;
       text-align:center;
     }
-
     .section > p{
       color: var(--muted);
       line-height:1.65;
@@ -294,7 +293,7 @@
       font-size: var(--p);
     }
 
-    /* ✅ ВРЪЩАМЕ центрирането в каталога */
+    /* Каталог центриране */
     #katalog .card,
     #katalog .card h3,
     #katalog .card small{ text-align:center; }
@@ -366,7 +365,7 @@
       transform: scale(1.01);
     }
 
-    /* Delivery card */
+    /* Delivery */
     .info-card{
       margin-top: 14px;
       background: rgba(255,255,255,.06);
@@ -419,7 +418,6 @@
       display:block;
     }
     .gallery-item[hidden]{ display:none !important; }
-
     .gallery-actions{
       margin-top: 12px;
       display:flex;
@@ -497,6 +495,58 @@
       text-decoration:none;
     }
     .contact-item a:hover{ text-decoration:underline; }
+
+    /* ✅ ВРЪЩАМЕ premium social в Контакти */
+    .social-row{
+      margin-top: 14px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .social-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      text-decoration:none;
+      color: rgba(255,255,255,.95);
+      font-weight: 900;
+      letter-spacing: .15px;
+      box-shadow:
+        0 14px 30px rgba(0,0,0,.26),
+        inset 0 1px 0 rgba(255,255,255,.20);
+      transition: transform .15s ease, filter .15s ease, border-color .15s ease;
+      min-width: 160px;
+      justify-content:center;
+    }
+
+    .social-btn svg{
+      width:18px;
+      height:18px;
+      fill: rgba(255,255,255,.95);
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));
+    }
+
+    .social-btn:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+      border-color: rgba(255,255,255,.26);
+    }
+
+    .social-btn.ig{
+      background:
+        radial-gradient(26px 26px at 30% 30%, rgba(255,255,255,.22), transparent 60%),
+        linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    }
+    .social-btn.fb{
+      background:
+        radial-gradient(26px 26px at 30% 30%, rgba(255,255,255,.20), transparent 60%),
+        linear-gradient(135deg, #1877F2, #0b5fd7);
+    }
 
     /* Form */
     form{
@@ -581,6 +631,11 @@
       display:grid;
       place-items:center;
       gap:4px;
+
+      /* ✅ FIX: да НЕ “излиза” текстът и да НЕ лепне върху съседен бутон */
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     .mobile-nav a span{
@@ -595,11 +650,11 @@
       color: #eaffd6;
     }
 
-    /* ✅ разпределение: 4 нав + 2 социални (без да се “мачка”) */
+    /* разпределение: 4 нав + 2 социални */
     .mobile-nav a[data-target]{ flex: 1 1 0; min-width: 0; }
     .mobile-nav a.social-mini{ flex: 0 0 54px; padding: 10px 0; }
 
-    /* --- PREMIUM COLOR SOCIAL MINI --- */
+    /* premium colored social mini */
     .mobile-nav a.social-mini{
       border-color: rgba(255,255,255,.18);
       box-shadow:
@@ -608,23 +663,18 @@
       transform: translateZ(0);
     }
     .mobile-nav a.social-mini:hover{ transform: translateY(-1px); }
-
     .mobile-nav a.social-mini svg{
       width: 20px;
       height: 20px;
       fill: rgba(255,255,255,.95);
       filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));
     }
-
-    /* Instagram gradient */
     .mobile-nav a.social-mini.ig{
       background:
         radial-gradient(22px 22px at 30% 30%, rgba(255,255,255,.25), transparent 55%),
         linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
       border-color: rgba(255,255,255,.22);
     }
-
-    /* Facebook blue */
     .mobile-nav a.social-mini.fb{
       background:
         radial-gradient(22px 22px at 30% 30%, rgba(255,255,255,.22), transparent 55%),
@@ -632,7 +682,6 @@
       border-color: rgba(255,255,255,.22);
     }
 
-    /* ✅ Mobile safe-area */
     @supports (padding: max(0px)){
       .mobile-nav{
         padding-bottom: max(10px, env(safe-area-inset-bottom));
@@ -667,7 +716,7 @@
       .mobile-nav{ display:flex; }
       .call-button{ display:inline-flex; gap:8px; align-items:center; }
 
-      /* ✅ ВАЖНО: на мобилно социалните горе НЕ се виждат (с !important) */
+      /* ✅ На мобилно скриваме горните социални */
       .topbar .social{ display:none !important; }
 
       .brand{ justify-content:center; }
@@ -680,7 +729,7 @@
       .lb-prev{ left: 6px; }
       .lb-next{ right: 6px; }
 
-      /* ✅ да не се крие “Запитване” под долния бар */
+      /* да не се крие “Запитване” под долния бар */
       #zapитване{
         padding-bottom: calc(18px + var(--mobile-nav-h) + 90px);
       }
@@ -689,7 +738,7 @@
       }
     }
 
-    /* --- Твоите “по-светли/по-четими” overrides --- */
+    /* --- по-светли/по-четими overrides --- */
     body{
       background:
         linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.42)),
@@ -764,7 +813,7 @@
       <a href="#kontakti">Контакти</a>
     </nav>
 
-    <!-- Desktop only (скрива се на мобилно с !important) -->
+    <!-- desktop (скрива се на мобилно) -->
     <div class="social" aria-label="Социални мрежи">
       <a href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -865,7 +914,6 @@
         <div class="gallery-item" data-src="assets/gallery/wp_06.webp" hidden><img src="assets/gallery/wp_06.webp" alt="Снимка 24" loading="lazy"></div>
         <div class="gallery-item" data-src="assets/gallery/wp_11.webp" hidden><img src="assets/gallery/wp_11.webp" alt="Снимка 25" loading="lazy"></div>
         <div class="gallery-item" data-src="assets/gallery/wp_04.webp" hidden><img src="assets/gallery/wp_04.webp" alt="Снимка 26" loading="lazy"></div>
-
         <div class="gallery-item" data-src="assets/gallery/wp_07.webp" hidden><img src="assets/gallery/wp_07.webp" alt="Снимка 27" loading="lazy"></div>
         <div class="gallery-item" data-src="assets/gallery/IMG_8717.webp" hidden><img src="assets/gallery/IMG_8717.webp" alt="Снимка 28" loading="lazy"></div>
       </div>
@@ -943,6 +991,23 @@
         <div class="contact-item"><strong>Имейл:</strong> <a href="mailto:info@manatarka.com">info@manatarka.com</a></div>
         <div class="contact-item"><strong>Телефон:</strong> <a href="tel:+359878599119">087 859 9119</a></div>
       </div>
+
+      <!-- ✅ ТУК са върнати premium social бутоните -->
+      <div class="social-row" aria-label="Последвай ни">
+        <a class="social-btn ig" href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
+          </svg>
+          Instagram
+        </a>
+
+        <a class="social-btn fb" href="https://www.facebook.com/manatarka.bulgaria" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.8-.2-3-.2-2.9 0-4.9 1.8-4.9 5V11H6.5v3H9v8h4.5z"/>
+          </svg>
+          Facebook
+        </a>
+      </div>
     </section>
 
     <footer>
@@ -950,7 +1015,7 @@
     </footer>
   </div>
 
-  <!-- ✅ Mobile nav + premium colored social (само долу) -->
+  <!-- Mobile nav + premium socials -->
   <div class="mobile-nav" aria-label="Навигация">
     <a href="#katalog" data-target="katalog"><span>🍄‍🟫</span>Каталог</a>
     <a href="#galeria" data-target="galeria"><span>🖼️</span>Галерия</a>
