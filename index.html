@@ -40,7 +40,6 @@
     *{ box-sizing:border-box; }
     html{
       scroll-behavior:smooth;
-      /* anchors да не се крият под fixed баровете */
       scroll-padding-top: calc(var(--topbar-h) + 26px);
       scroll-padding-bottom: calc(var(--mobile-nav-h) + 90px);
     }
@@ -58,7 +57,6 @@
       background-position: center;
     }
 
-    /* grain */
     body::before{
       content:"";
       position:fixed;
@@ -171,7 +169,7 @@
       transform: translateY(-1px);
     }
 
-    /* Topbar social (desktop) */
+    /* Desktop social (topbar) */
     .social{
       display:flex;
       align-items:center;
@@ -284,6 +282,7 @@
       color:#ffe0b2;
       text-align:center;
     }
+
     .section > p{
       color: var(--muted);
       line-height:1.65;
@@ -293,7 +292,7 @@
       font-size: var(--p);
     }
 
-    /* Каталог центриране */
+    /* ✅ Каталог центриран */
     #katalog .card,
     #katalog .card h3,
     #katalog .card small{ text-align:center; }
@@ -303,7 +302,6 @@
       margin-right:auto;
     }
 
-    /* Catalog grid */
     .grid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
@@ -365,7 +363,6 @@
       transform: scale(1.01);
     }
 
-    /* Delivery */
     .info-card{
       margin-top: 14px;
       background: rgba(255,255,255,.06);
@@ -418,6 +415,7 @@
       display:block;
     }
     .gallery-item[hidden]{ display:none !important; }
+
     .gallery-actions{
       margin-top: 12px;
       display:flex;
@@ -496,7 +494,7 @@
     }
     .contact-item a:hover{ text-decoration:underline; }
 
-    /* ✅ premium social в Контакти */
+    /* ✅ Premium “big” social buttons (Contacts) */
     .social-row{
       margin-top: 14px;
       display:flex;
@@ -504,48 +502,48 @@
       justify-content:center;
       flex-wrap:wrap;
     }
-
     .social-btn{
       display:inline-flex;
       align-items:center;
       gap:10px;
       padding: 12px 14px;
-      border-radius: 14px;
+      border-radius: 16px;
       border: 1px solid rgba(255,255,255,.18);
       text-decoration:none;
       color: rgba(255,255,255,.95);
       font-weight: 900;
       letter-spacing: .15px;
       box-shadow:
-        0 14px 30px rgba(0,0,0,.26),
-        inset 0 1px 0 rgba(255,255,255,.20);
-      transition: transform .15s ease, filter .15s ease, border-color .15s ease;
-      min-width: 160px;
+        0 16px 34px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.18);
+      transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+      min-width: 190px;
       justify-content:center;
     }
-
+    .social-btn:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow:
+        0 20px 40px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.22);
+    }
     .social-btn svg{
       width:18px;
       height:18px;
       fill: rgba(255,255,255,.95);
-      filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,.30));
     }
-
-    .social-btn:hover{
-      transform: translateY(-1px);
-      filter: brightness(1.04);
-      border-color: rgba(255,255,255,.26);
-    }
-
     .social-btn.ig{
       background:
-        radial-gradient(26px 26px at 30% 30%, rgba(255,255,255,.22), transparent 60%),
+        radial-gradient(28px 28px at 30% 30%, rgba(255,255,255,.22), transparent 55%),
         linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      border-color: rgba(255,255,255,.22);
     }
     .social-btn.fb{
       background:
-        radial-gradient(26px 26px at 30% 30%, rgba(255,255,255,.20), transparent 60%),
+        radial-gradient(28px 28px at 30% 30%, rgba(255,255,255,.18), transparent 55%),
         linear-gradient(135deg, #1877F2, #0b5fd7);
+      border-color: rgba(255,255,255,.22);
     }
 
     /* Form */
@@ -631,10 +629,7 @@
       display:grid;
       place-items:center;
       gap:4px;
-
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+      min-width: 0;
     }
 
     .mobile-nav a span{
@@ -649,17 +644,17 @@
       color: #eaffd6;
     }
 
-    /* разпределение: 4 нав + 2 социални */
+    /* 4 nav + 2 social */
     .mobile-nav a[data-target]{ flex: 1 1 0; min-width: 0; }
+    .mobile-nav a[data-target]{ font-size: .74rem; } /* малко по-малко за да не се мачка “Запитване” */
     .mobile-nav a.social-mini{ flex: 0 0 54px; padding: 10px 0; }
 
-    /* premium colored social mini */
+    /* Premium color mini */
     .mobile-nav a.social-mini{
       border-color: rgba(255,255,255,.18);
       box-shadow:
         0 12px 26px rgba(0,0,0,.25),
         inset 0 1px 0 rgba(255,255,255,.22);
-      transform: translateZ(0);
     }
     .mobile-nav a.social-mini:hover{ transform: translateY(-1px); }
     .mobile-nav a.social-mini svg{
@@ -715,6 +710,9 @@
       .mobile-nav{ display:flex; }
       .call-button{ display:inline-flex; gap:8px; align-items:center; }
 
+      /* ✅ на мобилно социалните горе НЕ се виждат */
+      .topbar .social{ display:none !important; }
+
       .brand{ justify-content:center; }
       .brand-sub{ max-width: 92vw; }
 
@@ -725,7 +723,6 @@
       .lb-prev{ left: 6px; }
       .lb-next{ right: 6px; }
 
-      /* да не се крие “Запитване” под долния бар */
       #zapитване{
         padding-bottom: calc(18px + var(--mobile-nav-h) + 90px);
       }
@@ -734,7 +731,7 @@
       }
     }
 
-    /* --- по-светли/по-четими overrides --- */
+    /* Light/Readable overrides */
     body{
       background:
         linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.42)),
@@ -788,32 +785,6 @@
       background: rgba(255,255,255,.15) !important;
       border-color: rgba(255,255,255,.30) !important;
     }
-
-    /* =========================================================
-       ✅ ФИКС: На мобилно НЕ показваме социалните в ТОП бара,
-       но в Контакти остават. На десктоп – топбар социалните
-       са видими.
-       (Сложено е НАЙ-НАКРАЯ, за да печели по cascade.)
-       ========================================================= */
-    @media (max-width: 768px){
-      .topbar .social{
-        display: none !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-      }
-      #kontakti .social-row{
-        display: flex !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-      }
-    }
-    @media (min-width: 769px){
-      .topbar .social{
-        display: flex !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-      }
-    }
   </style>
 </head>
 
@@ -835,7 +806,6 @@
       <a href="#kontakti">Контакти</a>
     </nav>
 
-    <!-- desktop (скрива се на мобилно чрез FIX-а най-долу) -->
     <div class="social" aria-label="Социални мрежи">
       <a href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -936,6 +906,7 @@
         <div class="gallery-item" data-src="assets/gallery/wp_06.webp" hidden><img src="assets/gallery/wp_06.webp" alt="Снимка 24" loading="lazy"></div>
         <div class="gallery-item" data-src="assets/gallery/wp_11.webp" hidden><img src="assets/gallery/wp_11.webp" alt="Снимка 25" loading="lazy"></div>
         <div class="gallery-item" data-src="assets/gallery/wp_04.webp" hidden><img src="assets/gallery/wp_04.webp" alt="Снимка 26" loading="lazy"></div>
+
         <div class="gallery-item" data-src="assets/gallery/wp_07.webp" hidden><img src="assets/gallery/wp_07.webp" alt="Снимка 27" loading="lazy"></div>
         <div class="gallery-item" data-src="assets/gallery/IMG_8717.webp" hidden><img src="assets/gallery/IMG_8717.webp" alt="Снимка 28" loading="lazy"></div>
       </div>
@@ -1014,6 +985,7 @@
         <div class="contact-item"><strong>Телефон:</strong> <a href="tel:+359878599119">087 859 9119</a></div>
       </div>
 
+      <!-- ✅ ВРЪЩАМЕ големите social бутони тук -->
       <div class="social-row" aria-label="Последвай ни">
         <a class="social-btn ig" href="https://www.instagram.com/manatarka.com_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1071,7 +1043,6 @@
   </div>
 
   <script>
-    // Mobile nav active state
     (function(){
       const links = Array.from(document.querySelectorAll('.mobile-nav a[data-target]'));
       const sections = links.map(a => document.getElementById(a.getAttribute('data-target'))).filter(Boolean);
@@ -1090,7 +1061,6 @@
       setActive(sections[0].id);
     })();
 
-    // Show more gallery items
     (function(){
       const btn = document.getElementById('showMoreBtn');
       const hiddenItems = Array.from(document.querySelectorAll('.gallery-item[hidden]'));
@@ -1107,7 +1077,6 @@
       });
     })();
 
-    // Lightbox
     (function(){
       const items = Array.from(document.querySelectorAll('.gallery-item'));
       const lb = document.getElementById('lightbox');
@@ -1139,17 +1108,12 @@
       const prev = () => open(idx - 1);
       const next = () => open(idx + 1);
 
-      items.forEach((el, i) => {
-        el.addEventListener('click', () => open(i));
-      });
-
+      items.forEach((el, i) => el.addEventListener('click', () => open(i)));
       closeBtn?.addEventListener('click', close);
       prevBtn?.addEventListener('click', prev);
       nextBtn?.addEventListener('click', next);
 
-      lb.addEventListener('click', (e) => {
-        if(e.target === lb) close();
-      });
+      lb.addEventListener('click', (e) => { if(e.target === lb) close(); });
 
       document.addEventListener('keydown', (e) => {
         if(!lb.classList.contains('open')) return;
